@@ -1,0 +1,12 @@
+#数据源连接信息
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://127.0.0.1:3306/market?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8010
+  servlet:
+    context-path: /summer-public-api
