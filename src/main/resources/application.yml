@@ -3,9 +3,10 @@ spring:
   datasource:
     username: root
     password: password
-    url: jdbc:mysql://127.0.0.1:3306/market?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/pd-market?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+#项目启动端口号
 server:
   port: 8010
   servlet:
