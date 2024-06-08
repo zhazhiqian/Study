@@ -20,7 +20,37 @@ public class LoginController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /*
+    汽车管理系统：
 
+    1.配置一个常量类：存放常量的类：
+    车辆出租状态：
+        1.正常（未出租）
+        2.待出租（交付中）
+        3.已出租（已交付）
+        4.待退租（车辆检查）
+        5.已退租
+
+     车辆车况状态：
+        1.完好
+        2.99新
+        3.9成新
+        4.8成新
+        5.破损
+        6.损坏
+
+      车辆上架状态：
+        1.上架
+        2.审核
+        3.下架
+
+
+     */
+
+     /* *
+     *
+     * @throws SQLException
+     */
     @GetMapping("/test")
     public void login() throws SQLException {
 
