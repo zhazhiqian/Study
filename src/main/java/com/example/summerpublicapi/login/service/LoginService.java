@@ -1,5 +1,6 @@
 package com.example.summerpublicapi.login.service;
 
+import com.example.summerpublicapi.common.dto.UserInfo;
 import com.example.summerpublicapi.login.dao.param.LoginParam;
 import com.example.summerpublicapi.login.mapper.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class LoginService {
 
         // todo 密码做加密
         return loginMapper.login(loginParam);
+    }
+
+
+    public UserInfo getUserInfo(LoginParam loginParam){
+        return loginMapper.getUserInfo(loginParam);
     }
 
 }

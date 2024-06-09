@@ -5,4 +5,16 @@
     resultType="java.lang.Integer">
         select count(1) from sys_user where login_id = #{login.loginName} and login_password = #{login.password} and user_status = '1'
     </select>
+
+    <select id="getUserInfo" resultType="com.example.summerpublicapi.common.dto.UserInfo">
+        select
+            top 1
+            user_id as userId,
+            user_name as userName,
+            login_id as loginId
+        from
+            sys_user
+        where login_id = #{login.loginName}
+        and user_status = '1'
+    </select>
 </mapper>

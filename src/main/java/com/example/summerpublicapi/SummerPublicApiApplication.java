@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.example"})
 @MapperScan(value = "com.example.summerpublicapi.**.mapper")
+
 public class SummerPublicApiApplication  {
 
     public static void main(String[] args) {
