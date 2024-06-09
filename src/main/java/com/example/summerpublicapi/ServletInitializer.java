@@ -1,4 +1,4 @@
-package com.example.summerpublicapi.start;
+package com.example.summerpublicapi;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

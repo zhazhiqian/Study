@@ -2,19 +2,19 @@ package com.example.summerpublicapi.login.controller;
 
 import com.example.summerpublicapi.login.dao.param.LoginParam;
 import com.example.summerpublicapi.login.service.LoginService;
-import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import javax.annotation.Resource;
+
+@RestController
 @RequestMapping("/loginMathod")
 public class LoginController {
 
     @Resource
-    private LoginService loginService;
+    LoginService loginService;
      /* *
      * 判断你当前登录用户是否存在于数据库
      * @throws SQLException
