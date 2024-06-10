@@ -6,11 +6,12 @@ import com.example.summerpublicapi.login.dao.param.LoginParam;
 import com.example.summerpublicapi.login.service.LoginService;
 import com.example.summerpublicapi.returndto.ReturnDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.redis.core.RedisTemplate;
+
 import javax.annotation.Resource;
 
 @RestController
