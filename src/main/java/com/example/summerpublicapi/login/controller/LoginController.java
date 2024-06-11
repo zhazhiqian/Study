@@ -1,5 +1,7 @@
 package com.example.summerpublicapi.login.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.alibaba.fastjson.JSONObject;
 import com.example.summerpublicapi.common.RedisKey;
 import com.example.summerpublicapi.common.dto.UserInfo;
 import com.example.summerpublicapi.login.dao.param.LoginParam;
@@ -45,7 +47,7 @@ public class LoginController {
             // redis无则插入返回false，有则返回true （redisTemplate需要好好学习使用）
             UserInfo userInfo = loginService.getUserInfo(loginParam);
             // 将当前用户信息存储
-            redisTemplate.opsForHash().putIfAbsent(RedisKey.loginUserInfo,loginParam.getLoginName(),userInfo);
+            redisTemplate.opsForHash().putIfAbsent(RedisKey.loginUserInfo,loginParam.getLoginName(), JSONObject.toJSONString(userInfo));
             return ReturnDto.success("请求成功","登陆成功");
         }
         else{
