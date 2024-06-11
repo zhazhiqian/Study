@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.summerpublicapi.bigclassify.mapper.BigClassifyMapper">
+
+    <select id="queryBigClassify"
+            resultType="com.example.summerpublicapi.bigclassify.dao.result.BigClassifyQueryResponse">
+        select
+        T1.big_classify_id as bigClassifyId,
+        T1.big_classify_name as bigClassifyName,
+        T1.operator_status as  operatorStatus,
+        date_format(T1.create_time, '%Y-%m-%d %H:%i:%s') createTime,
+        date_format(T1.update_time, '%Y-%m-%d %H:%i:%s') updateTime,
+        T1.remark as remark,
+        T2.user_name createUserName,
+        T3.user_name updateUserName
+        from sys_big_classify T1 left join sys_user T2
+        on T1.create_user_id = T2.user_id
+        left join sys_user T3
+        on T1.create_user_id = T3.user_id
+        <where>
+       <if test="request.bigClassifyName != null and request.bigClassifyName != ''">
+           and big_classify_name  like concat(concat('%',#{request.bigClassifyName,jdbcType=VARCHAR}),'%')
+       </if>
+       <if test="list != null and list.size() > 0">
+           and operator_status in
+           <foreach collection="list" item="item" open="(" close=")" separator=",">
+                #{item}
+           </foreach>
+       </if>
+        </where>
+    </select>
+</mapper>
