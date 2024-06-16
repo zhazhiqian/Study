@@ -1,15 +1,15 @@
 package com.example.summerpublicapi.bigclassify.dao.param;
 
 
-public class BigClassifyQueryRequest {
+import com.example.summerpublicapi.common.dto.UserInfo;
+import lombok.Data;
+
+@Data
+public class BigClassifyQueryRequest extends UserInfo {
 
     private String bigClassifyName;
 
-    public String getBigClassifyName() {
-        return bigClassifyName;
-    }
+    private String bigClassifyStatus;
 
-    public void setBigClassifyName(String bigClassifyName) {
-        this.bigClassifyName = bigClassifyName;
-    }
+    private  String equalName;
 }

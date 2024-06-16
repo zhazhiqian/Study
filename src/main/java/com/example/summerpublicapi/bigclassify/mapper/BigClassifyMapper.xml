@@ -28,6 +28,33 @@
                 #{item}
            </foreach>
        </if>
+        <if test="request.equalName != null and request.equalName != ''">
+            and big_classify_name  =#{request.equalName}
+        </if>
         </where>
     </select>
+
+    <!-- 插入大分类 -->
+    <insert id="addBigClassify">
+          insert into sys_big_classify(operator_status,big_classify_name,remark,create_time,create_user_id,update_time,update_user_id)
+          values('1',#{param.bigClassifyName},#{param.remark},SYSDATE(),#{param.userId},SYSDATE(),#{param.userId})
+    </insert>
+
+    <update id="updateBigClassify">
+        update sys_big_classify set
+                    update_time = sysdate(),
+
+                    <if test="param.bigClassifyName != null and param.bigClassifyName != ''">
+                        big_classify_name = #{param.bigClassifyName},
+                    </if>
+                 <if test="param.remark != null and param.remark != ''">
+                     remark =        #{param.remark},
+                 </if>
+                <if test="param.updateStatus != null and param.updateStatus != ''">
+                    operator_status =        #{param.updateStatus},
+                </if>
+                update_user_id = #{param.userId}
+        where big_classify_id = #{param.bigClassifyId}
+    </update>
+
 </mapper>
